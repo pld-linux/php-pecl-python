@@ -1,12 +1,12 @@
-%define		_module		python
+%define		_modname		python
 Summary:	Embedded Python
 Summary(pl):	Python wbudowany w PHP
-Name:		php-pecl-%{_module}
+Name:		php-pecl-%{_modname}
 Version:	0.6.0
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_module}-%{version}.tgz
+Source0:	http://pear.php.net/get/%{_modname}-%{version}.tgz
 URL:		http://pear.php.net/
 BuildRequires:	php-devel
 BuildRequires:	python-devel
@@ -25,11 +25,11 @@ from within PHP.
 %setup -q -c
 
 %build
-cd %{_module}-%{version}
+cd %{_modname}-%{version}
 phpize
 %{__aclocal}
 %configure \
-	--with-%{_module}
+	--with-%{_modname}
 
 %{__make} CPPFLAGS="-DHAVE_CONFIG_H -I%{_prefix}/X11R6/include/X11/"
 
@@ -37,20 +37,20 @@ phpize
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{extensionsdir}
 
-install %{_module}-%{version}/modules/%{_module}.so $RPM_BUILD_ROOT%{extensionsdir}
+install %{_modname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{extensionsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/sbin/php-module-install install %{_module} %{_sysconfdir}/php.ini
+/usr/sbin/php-module-install install %{_modname} %{_sysconfdir}/php.ini
 
 %preun
 if [ "$1" = "0" ]; then
-	/usr/sbin/php-module-install remove %{_module} %{_sysconfdir}/php.ini
+	/usr/sbin/php-module-install remove %{_modname} %{_sysconfdir}/php.ini
 fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_module}-%{version}/{CREDITS,EXPERIMENTAL}
-%attr(755,root,root) %{extensionsdir}/%{_module}.so
+%doc %{_modname}-%{version}/{CREDITS,EXPERIMENTAL}
+%attr(755,root,root) %{extensionsdir}/%{_modname}.so
