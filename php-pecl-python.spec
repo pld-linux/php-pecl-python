@@ -24,14 +24,14 @@ This extension allows the Python interpreter to be embedded inside of
 PHP, allowing for the instantiate and manipulation of Python objects
 from within PHP.
 
-This extension has in PEAR status: %{_status}.
+In PECL status of this package is: %{_status}.
 
 %description -l pl
 To rozszerzenie pozwala na wbudowanie interpretera Pythona do PHP, co
 pozwala na wykorzystanie i manipulowanie obiektami Pythona z wewn±trz
 PHP.
 
-To rozszerzenie ma w PEAR status: %{_status}.
+To rozszerzenie ma w PECL status: %{_status}.
 
 %prep
 %setup -q -c
