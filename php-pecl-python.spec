@@ -31,7 +31,7 @@ To rozszerzenie pozwala na wbudowanie interpretera Pythona do PHP, co
 pozwala na wykorzystanie i manipulowanie obiektami Pythona z wewn±trz
 PHP.
 
-To roszerzenie ma w PEAR status: %{_status}
+To rozszerzenie ma w PEAR status: %{_status}
 
 %prep
 %setup -q -c
