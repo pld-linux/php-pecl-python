@@ -1,13 +1,14 @@
 %define		_modname		python
+%define		_status			alpha
 Summary:	Embedded Python
 Summary(pl):	Python wbudowany w PHP
 Name:		php-pecl-%{_modname}
-Version:	0.6.0
+Version:	0.7.0
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	aabbcbbff472041343f2606e318601ff
+# Source0-md5:	61554c04374a5fab83084e299284f255
 URL:		http://pear.php.net/
 BuildRequires:	automake
 BuildRequires:	php-devel
@@ -23,10 +24,14 @@ This extension allows the Python interpreter to be embedded inside of
 PHP, allowing for the instantiate and manipulation of Python objects
 from within PHP.
 
+This extension has in PEAR status: %{_status}
+
 %description -l pl
 To rozszerzenie pozwala na wbudowanie interpretera Pythona do PHP, co
 pozwala na wykorzystanie i manipulowanie obiektami Pythona z wewn±trz
 PHP.
+
+To roszerzenie ma w PEAR status: %{_status}
 
 %prep
 %setup -q -c
