@@ -7,9 +7,9 @@ Version:	0.7.0
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
-Source0:	http://pear.php.net/get/%{_modname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	61554c04374a5fab83084e299284f255
-URL:		http://pear.php.net/package/python/
+URL:		http://pecl.php.net/package/python/
 BuildRequires:	automake
 BuildRequires:	php-devel
 BuildRequires:	python-devel
