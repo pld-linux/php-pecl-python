@@ -8,6 +8,7 @@ License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_modname}-%{version}.tgz
 URL:		http://pear.php.net/
+BuildRequires:	automake
 BuildRequires:	php-devel
 BuildRequires:	python-devel
 Requires:	php-common
@@ -20,6 +21,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This extension allows the Python interpreter to be embedded inside of
 PHP, allowing for the instantiate and manipulation of Python objects
 from within PHP.
+
+%description -l pl
+To rozszerzenie pozwala na wbudowanie interpretera Pythona do PHP, co
+pozwala na wykorzystanie i manipulowanie obiektami Pythona z wewn±trz
+PHP.
 
 %prep
 %setup -q -c
