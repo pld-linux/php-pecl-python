@@ -1,0 +1,56 @@
+%define		_module		python
+Summary:	Embedded Python
+Summary(pl):	Python wbudowany w PHP
+Name:		php-pecl-%{_module}
+Version:	0.6.0
+Release:	1
+License:	PHP 2.02
+Group:		Development/Languages/PHP
+Source0:	http://pear.php.net/get/%{_module}-%{version}.tgz
+URL:		http://pear.php.net/
+BuildRequires:	php-devel
+BuildRequires:	python-devel
+Requires:	php-common
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_sysconfdir	/etc/php
+%define		extensionsdir	%{_libdir}/php
+
+%description
+This extension allows the Python interpreter to be embedded inside of
+PHP, allowing for the instantiate and manipulation of Python objects
+from within PHP.
+
+%prep
+%setup -q -c
+
+%build
+cd %{_module}-%{version}
+phpize
+%{__aclocal}
+%configure \
+	--with-%{_module}
+
+%{__make} CPPFLAGS="-DHAVE_CONFIG_H -I%{_prefix}/X11R6/include/X11/"
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{extensionsdir}
+
+install %{_module}-%{version}/modules/%{_module}.so $RPM_BUILD_ROOT%{extensionsdir}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post
+/usr/sbin/php-module-install install %{_module} %{_sysconfdir}/php.ini
+
+%preun
+if [ "$1" = "0" ]; then
+	/usr/sbin/php-module-install remove %{_module} %{_sysconfdir}/php.ini
+fi
+
+%files
+%defattr(644,root,root,755)
+%doc %{_module}-%{version}/{CREDITS,EXPERIMENTAL}
+%attr(755,root,root) %{extensionsdir}/%{_module}.so
