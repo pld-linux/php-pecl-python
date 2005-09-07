@@ -38,7 +38,6 @@ To rozszerzenie ma w PECL status: %{_status}.
 %build
 cd %{_modname}-%{version}
 phpize
-%{__aclocal}
 %configure \
 	--with-%{_modname}
 
