@@ -1,22 +1,21 @@
 # TODO
-# - doesn't build
+# - doesn't build (can't find python)
 %define		_modname		python
 %define		_status			alpha
-%define		_sysconfdir	/etc/php
+%define		_sysconfdir		/etc/php
 %define		extensionsdir	%(php-config --extension-dir 2>/dev/null)
-
 Summary:	Embedded Python
 Summary(pl):	Python wbudowany w PHP
 Name:		php-pecl-%{_modname}
 Version:	0.7.0
-Release:	1
+Release:	1.1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	61554c04374a5fab83084e299284f255
 URL:		http://pecl.php.net/package/python/
 BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.238
+BuildRequires:	rpmbuild(macros) >= 1.254
 BuildRequires:	python-devel
 %{?requires_php_extension}
 Requires:	%{_sysconfdir}/conf.d
