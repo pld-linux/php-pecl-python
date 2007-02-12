@@ -3,7 +3,7 @@
 %define		_modname		python
 %define		_status			alpha
 Summary:	Embedded Python
-Summary(pl):	Python wbudowany w PHP
+Summary(pl.UTF-8):   Python wbudowany w PHP
 Name:		php-pecl-%{_modname}
 Version:	0.7.0
 Release:	1.1
@@ -26,9 +26,9 @@ from within PHP.
 
 In PECL status of this package is: %{_status}.
 
-%description -l pl
+%description -l pl.UTF-8
 To rozszerzenie pozwala na wbudowanie interpretera Pythona do PHP, co
-pozwala na wykorzystanie i manipulowanie obiektami Pythona z wewn±trz
+pozwala na wykorzystanie i manipulowanie obiektami Pythona z wewnÄ…trz
 PHP.
 
 To rozszerzenie ma w PECL status: %{_status}.
