@@ -3,7 +3,7 @@
 %define		_modname		python
 %define		_status			alpha
 Summary:	Embedded Python
-Summary(pl.UTF-8):   Python wbudowany w PHP
+Summary(pl.UTF-8):	Python wbudowany w PHP
 Name:		php-pecl-%{_modname}
 Version:	0.7.0
 Release:	1.1
