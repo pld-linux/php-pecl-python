@@ -1,20 +1,18 @@
-# TODO
-# - doesn't build (can't find python)
 %define		_modname		python
 %define		_status			alpha
-Summary:	Embedded Python
-Summary(pl.UTF-8):	Python wbudowany w PHP
+Summary:	%{_modname} - embedded Python
+Summary(pl.UTF-8):	%{_modname} - Python wbudowany w PHP
 Name:		php-pecl-%{_modname}
-Version:	0.7.0
-Release:	1.1
-License:	PHP 2.02
+Version:	0.8.0
+Release:	1
+License:	MIT License
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	61554c04374a5fab83084e299284f255
+# Source0-md5:	bfe4236be15dc5095d1dfc6722f14c35
 URL:		http://pecl.php.net/package/python/
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
-BuildRequires:	python-devel
+BuildRequires:	python-devel < 1:2.6.0
 %{?requires_php_extension}
 Requires:	php-common >= 4:5.0.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -42,7 +40,8 @@ phpize
 %configure \
 	--with-%{_modname}
 
-%{__make} CPPFLAGS="-DHAVE_CONFIG_H -I%{_prefix}/X11R6/include/X11/"
+%{__make} \
+	CPPFLAGS="-DHAVE_CONFIG_H"
 
 %install
 rm -rf $RPM_BUILD_ROOT
