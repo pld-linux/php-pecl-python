@@ -5,17 +5,18 @@ Summary:	%{modname} - embedded Python
 Summary(pl.UTF-8):	%{modname} - Python wbudowany w PHP
 Name:		%{php_name}-pecl-%{modname}
 Version:	0.8.0
-Release:	1
+Release:	2
 License:	MIT License
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	bfe4236be15dc5095d1dfc6722f14c35
 URL:		http://pecl.php.net/package/python/
 BuildRequires:	%{php_name}-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.650
 BuildRequires:	python-devel < 1:2.6.0
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
-Requires:	php-common >= 4:5.0.4
+Requires:	php(core) >= 5.0.4
+Provides:	php(%{modname}) = %{version}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
